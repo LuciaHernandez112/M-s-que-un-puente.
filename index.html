@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor Accesible de Cuentos PDF</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Librería PDF.js para procesar el PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- Librería PageFlip para el efecto interactivo de pasar páginas -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+    <!-- Anuncio accesible para lectores de pantalla -->
+    <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <header class="header">
+        <h1>Lector de Cuentos Accesible</h1>
+        
+        <!-- Barra de herramientas con accesibilidad y navegación -->
+        <div class="toolbar" role="toolbar" aria-label="Herramientas de lectura y accesibilidad">
+            <!-- Puntos 3 y 8: Control de tamaño de texto -->
+            <div class="control-group">
+                <button id="btn-zoom-in" class="btn" aria-label="Agrandar vista o texto">Aumentar tamaño (+)</button>
+                <button id="btn-zoom-out" class="btn" aria-label="Achicar vista o texto">Disminuir tamaño (-)</button>
+            </div>
+
+            <!-- Punto 4: Botones de navegación -->
+            <div class="control-group">
+                <button id="btn-prev" class="btn btn-nav" aria-label="Página anterior">← Anterior</button>
+                <span id="page-indicator" class="page-indicator" aria-live="polite">Página 0 / 0</span>
+                <button id="btn-next" class="btn btn-nav" aria-label="Página siguiente">Siguiente →</button>
+            </div>
+
+            <!-- Punto 3 y 6: Lectura en voz alta (Text-to-Speech) -->
+            <div class="control-group">
+                <button id="btn-speak" class="btn btn-accent" aria-label="Iniciar o detener lectura en voz alta">🔊 Leer cuento</button>
+                <button id="btn-stop-speak" class="btn btn-danger" aria-label="Detener lectura en voz alta" style="display: none;">⏹ Detener voz</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading-status" role="status">Cargando cuento.pdf... Por favor espere.</div>
+    </header>
+
+    <main class="book-container">
+        <!-- Punto 5: Efectos de transición y paginación -->
+        <div id="flip-book" class="flip-book"></div>
+    </main>
+
+    <!-- Punto 7: Declaratoria de uso de Inteligencia Artificial Generativa -->
+    <footer class="footer">
+        <p class="ai-declaration">
+            <strong>Declaratoria de uso de IAG:</strong> Este sitio web y la adaptación de sus herramientas de accesibilidad, procesamiento de contenido y animaciones fueron desarrollados con el soporte de herramientas de Inteligencia Artificial Generativa (IAG).
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
